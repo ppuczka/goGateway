@@ -1,0 +1,4 @@
+dev:
+  app-name: kafkaTwitterConsumer
+  port: 7777
+  config-server-url: http://localhost:8888/application/dev
