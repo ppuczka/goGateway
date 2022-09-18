@@ -13,11 +13,8 @@ func main() {
 		conf.LOG.Sugar().Errorf("error while loading configuration %s", err)
 	}
 
-	//err = app.ConsumeKafkaStream()
-	//if err != nil {
-	//	conf.LOG.Sugar().Errorf("error while confuming kafka stream %s", err)
-	//}
-
-	app.StartWebServer(viper.GetString("dev.port"))
+	router := app.NewRouter()
+	router.ProcessAllRoutes()
+	app.StartWebServer(viper.GetString("dev.port"), router)
 
 }
